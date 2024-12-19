@@ -2,7 +2,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='stat_analysis',
+    name='stat_analys',
     version='0.1.0',
     packages=find_packages(),
     install_requires=[
