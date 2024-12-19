@@ -24,7 +24,7 @@ setup(
     description='Un package pour l\'analyse statistique univariée',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
-    url='https://github.com/votre_utilisateur/stat_analysis',
+    url='https://github.com/Jean-Paul15/stat_analysis',
     classifiers=[
         'Programming Language :: Python :: 3',
         'License :: OSI Approved :: MIT License',
