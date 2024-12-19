@@ -1,4 +1,4 @@
-# stat_analysis/utils.py
+# stat_analys/utils.py
 import numpy as np
 import pandas as pd
 from scipy import stats

@@ -1,4 +1,4 @@
-# stat_analysis/visualizations.py
+# stat_analys/visualizations.py
 import pandas as pd
 import numpy as np
 import seaborn as sns

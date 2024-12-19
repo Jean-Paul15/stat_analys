@@ -1,4 +1,4 @@
-# stat_analysis/configuration.py
+# stat_analys/configuration.py
 from dataclasses import dataclass
 
 @dataclass
