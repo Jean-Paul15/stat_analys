@@ -1,6 +1,6 @@
 # tests/test_configuration.py
 import unittest
-from stat_analysis.configuration import ConfigurationPlot
+from stat_analys.configuration import ConfigurationPlot
 
 class TestConfigurationPlot(unittest.TestCase):
     def test_default_values(self):

@@ -1,6 +1,6 @@
 # Stat Analys
 
-`stat_analys` est un package Python pour l'analyse statistique univariee avancee. Il permet de realiser des analyses statistiques detaillees et de generer des visualisations pour les variables numeriques et categorielles.
+`stat_analys` est un package Python pour l'analyse statistique univariee. Il permet de realiser des analyses statistiques detaillees et de generer des visualisations pour les variables numeriques et categorielles.
 
 ## Installation
 
@@ -16,7 +16,7 @@ Voici un exemple d'utilisation du package :
 
 ```python
 import pandas as pd
-from stat_analys.advanced_univariate_stat import AdvancedUnivariateStat
+from stat_analys.univariate_stat import AdvancedUnivariateStat
 from stat_analys.configuration import ConfigurationPlot
 
 # Creation d'un DataFrame exemple
@@ -33,7 +33,7 @@ config = ConfigurationPlot(theme_plotly="plotly_dark", theme_seaborn="darkgrid")
 stat = AdvancedUnivariateStat(config)
 
 # Analyse statistique avancee
-resultats = stat.analyse_statistique_avancee(df, colonnes=['numerique', 'categorielle'], afficher_plots=True)
+resultats = stat.Analyser(df, colonnes=['numerique', 'categorielle'], afficher_plots=True)
 ```
 
 ## Fonctionnalites
