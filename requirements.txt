@@ -6,7 +6,3 @@ plotly
 scipy
 sklearn
 tabulate
-dataclasses
-logging
-warnings
-collections

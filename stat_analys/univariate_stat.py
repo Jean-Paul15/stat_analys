@@ -260,18 +260,18 @@ class AdvancedUnivariateStat:
 
         return "\n".join(tables)
 
-    def analyse_statistique_avancee(
+    def Analyser(
         self,
-        df: pd.DataFrame,
+        data: pd.DataFrame,
         colonnes: Optional[List[str]] = None,
         afficher_plots: bool = True,
         **kwargs
-    ) -> Dict:
+    ):
         """
-        Analyse statistique avancée des variables avec visualisations multiples.
-
+        Analyse statistique des variables avec visualisations multiples.
+       
         Args:
-            df (pd.DataFrame): DataFrame à analyser
+            data (pd.DataFrame): DataFrame à analyser
             colonnes (List[str], optional): Liste des colonnes à analyser
             afficher_plots (bool): Afficher les visualisations
             **kwargs: Arguments supplémentaires pour personnaliser l'analyse:
@@ -283,7 +283,28 @@ class AdvancedUnivariateStat:
                 - niveau_confiance (float): Niveau de confiance pour les IC
 
         Returns:
-            Dict: Résultats de l'analyse
+            - : Résultats de l'analyse
+        
+        
+         Configuration des paramètres de visualisation.
+
+        Attributes:
+            theme_plotly (str): Thème Plotly pour les visualisations.
+            theme_seaborn (str): Thème Seaborn pour les visualisations.
+            hauteur (int): Hauteur des figures.
+            largeur (int): Largeur des figures.
+            taille_police (int): Taille de la police.
+            palette (str): Palette de couleurs pour les visualisations.
+            rotation_labels (int): Rotation des labels.
+            afficher_kde (bool): Afficher la densité kernel.
+            afficher_rug (bool): Afficher le rugged plot.
+            nbins (int): Nombre de bins pour les histogrammes.
+            style_boxplot (str): Style des boxplots ('box' ou 'violin').
+            alpha (float): Transparence des plots.
+            engine (str): Moteur de visualisation ('seaborn', 'plotly', ou 'both').
+            niveau_confiance (float): Niveau de confiance pour les intervalles de confiance.
+            palette_categorielle (str): Palette de couleurs pour les variables catégorielles.
+            
         """
         # Mise à jour de la configuration avec les kwargs
         for key, value in kwargs.items():
@@ -292,16 +313,16 @@ class AdvancedUnivariateStat:
 
         # Si aucune colonne n'est spécifiée, analyser toutes les colonnes
         if colonnes is None:
-            colonnes = df.columns.tolist()
+            colonnes = data.columns.tolist()
 
         resultats = {}
 
         for colonne in colonnes:
-            if colonne not in df.columns:
+            if colonne not in data.columns:
                 self.logger.warning(f"La colonne {colonne} n'existe pas dans le DataFrame")
                 continue
 
-            data = df[colonne]
+            data = data[colonne]
             valid, message = verifier_donnees(data)
             if not valid:
                 self.logger.warning(message)
@@ -310,7 +331,7 @@ class AdvancedUnivariateStat:
 
             resultats[colonne] = self._calculer_statistiques(data)
 
-          #  print(self._formater_resultats(resultats[colonne], colonne))
+            print(self._formater_resultats(resultats[colonne], colonne))
 
             if afficher_plots:
                 if np.issubdtype(data.dtype, np.number):
@@ -333,4 +354,4 @@ class AdvancedUnivariateStat:
                         fig_plotly = creer_visualisation_plotly_categorielle(data, colonne, self.config)
                         fig_plotly.show()
 
-        return resultats
+
